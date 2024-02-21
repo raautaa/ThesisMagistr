@@ -1,12 +1,61 @@
 \newpage
 \begin{center}
-  \textbf{\large 2. МОДЕЛЬ ПЛАВЛЕНИЯ ПЕРЕГРЕТЫХ КРИСТАЛЛОВ}
+  \textbf{\large 2. РАСЧЕТ КОЛЕЦ ФЛАНЦЕВ}
 \end{center}
 \refstepcounter{chapter}
-\addcontentsline{toc}{chapter}{2. МОДЕЛЬ ПЛАВЛЕНИЯ ПЕРЕГРЕТЫХ КРИСТАЛЛОВ}
+\addcontentsline{toc}{chapter}{2. РАСЧЕТ КОЛЕЦ ФЛАНЦЕВ}
 
 
-\section{Введение}
+\section{Изгиб пластинки в полярных координатах}
+
+Если отсчет координат $r$ $\theta$ производить в соответствии с рисунком , то связь между полярными и декартовыми координатами выразится уравнением
+\begin{equation}
+  \label{aaa}
+  r^2=x_1^2+x_2^2, \quad \theta=\arctan \frac{x_2}{x_1}
+\end{equation}
+
+Откуда следует, что 
+\begin{equation}
+  \label{bbb}
+  \left\{
+    \begin{array}{ll}
+     \displaystyle \frac{\partial r}{\partial x_1}=\frac{x_1}{r}=\cos \theta, & \displaystyle \frac{\partial r}{\partial x_2}=\frac{x_2}{r}=\sin \theta,\\
+      \displaystyle \frac{\partial \theta}{\partial x_1}=-\frac{x_2}{r^2}=-\frac{\sin \theta}{r}, & \displaystyle \frac{\partial \theta}{\partial x_2}=\frac{x_1}{r^2}=\frac{\cos \theta}{r}.\\
+    \end{array}
+  \right.
+\end{equation}
+
+Пользуясь данными выражениями, находим наклон изогнутой поверхности пластинки в направлении $x_1$ $x_2$ 
+
+Таким образом уравнение Софи-Жермен в полярных координатах примет вид
+\begin{equation}
+  \label{aaaaaaS}
+  \nabla \nabla u_3= \left (\frac{\partial ^2 u_3}{\partial r^2}+\frac{1}{r} \frac{\partial u_3}{\partial r}+\frac{1}{r^2}\frac{\partial ^2 u_3}{\partial \theta} \right ) \left (\frac{\partial ^2 u_3}{\partial r^2}+\frac{1}{r} \frac{\partial u_3}{\partial r}+\frac{1}{r^2}\frac{\partial ^2 u_3}{\partial \theta} \right )=\frac{q \left (r, \theta \right )}{D}
+\end{equation}
+
+Чтобы определить внутренние усилия в пластине следует в формулах , переходя с помощью  от декартовых координат к полярным и принимая $\theta=0$, окончательно получим
+\begin{equation}
+  \label{bbb}
+    \begin{array}{ll}
+      \displaystyle M_r = -D \left ( \frac{\partial ^2 u_3}{\partial x_1^2}+ \nu \frac{\partial ^2 u_3}{\partial x_2^2} \right )_{\theta=0}=D \left [ \frac{\partial ^2 u_3}{\partial r^2} + \nu \left ( \frac{1}{r} \frac{\partial u_3}{\partial r}+ \frac{1}{r^2} \frac{\partial^2 u_3}{\partial \theta^2}\right ) \right ],\\
+      \displaystyle M_{\theta} = -D \left ( \frac{1}{r} \frac{\partial u_3}{\partial r} + \frac{1}{r^2} \frac{\partial^2 u_3}{\partial \theta^2} + \nu \frac{\partial^2 u_3}{\partial r^2} \right ),\\
+      \displaystyle M_{\theta r} = (1- \nu) D \left ( \frac{1}{r} \frac{\partial^2 u_3}{\partial r \partial \theta} - \frac{1}{r^2} \frac{\partial u_3}{\partial \theta}\right ),
+    \end{array}
+\end{equation}
+
+Аналогичным образом из  получим формулы для поперечных сил 
+\begin{equation}
+  \label{bbb}
+    \begin{array}{ll}
+      \begin{array}{ll}
+        \displaystyle M_r = -D \frac{\partial }{\partial r} \nabla^2 u_3 = -D \left [ \left ( \frac{\partial^2}{\partial r} + \frac{1}{r}\frac{\partial}{\partial r}+ \frac{1}{r^2} \frac{\partial^2}{\partial \theta^2} \right ) u_3 \right ],\\
+        \displaystyle M_r = -D \frac{1}{r} \frac{\partial }{\partial \theta} \nabla^2 u_3 = -D \frac{1}{r} \frac{\partial}{\partial \theta} \left [ \left ( \frac{\partial^2}{\partial r} + \frac{1}{r}\frac{\partial}{\partial r}+ \frac{1}{r^2} \frac{\partial^2}{\partial \theta^2} \right ) u_3 \right ],
+            \end{array}
+    \end{array}
+\end{equation}
+
+Отсюда сразу определим граничные условия
+
 
 Плавление -- один из наиболее изученных фазовых переходов, важных для атомных, молекулярных, коллоидных и белковых систем.
 Однако в настоящее время не существует микроскопических экспериментально доступных критериев, которые можно было бы использовать для надежного отслеживания эволюции системы при переходе, критериев, дающих возможность понять физику зародышеобразования при плавлении и эволюции фронта плавления.
