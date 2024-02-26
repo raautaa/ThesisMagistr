@@ -1,9 +1,330 @@
 \newpage
 \begin{center}
-  \textbf{\large 3. ДИФФУЗИЯ НА ЖИДКОСТНЫХ БИНОДАЛЯХ: ВЛИЯНИЕ ДАЛЬНОДЕЙСТВИЯ СИЛЫ ПРИТЯЖЕНИЯ}
+  \textbf{\large 3. РАСЧЕТ ВТУЛОК ФЛАНЦЕВ}
 \end{center}
 \refstepcounter{chapter}
-\addcontentsline{toc}{chapter}{3. ДИФФУЗИЯ НА ЖИДКОСТНЫХ БИНОДАЛЯХ: ВЛИЯНИЕ ДАЛЬНОДЕЙСТВИЯ СИЛЫ ПРИТЯЖЕНИЯ}
+\addcontentsline{toc}{chapter}{3. РАСЧЕТ ВТУЛОК ФЛАНЦЕВ}
+
+
+По своей конструкции фланцы делятся на длинные цилиндрические, короткие, конические, галтельные и приварные внахлест к трубам.
+Утолщение края втулки делается для снижения во фланце напряжений и прогиба его кольца.
+
+С точки зрения расчета указанные выше втулки принято считать как тонкостенные цилиндрические оболочки, в общем случае с остенками переменной толщины; нагрузка считается приложеной к краю симметрично отностительно оси оболочки.
+Все задачи, связанные с деформациями таких оболочек, своядтся к интегрированию дифференциального уравнения того же вида, что и дифференциальное уравнение балки, лежащей на упругом основании. 
+Наиболее простое решение получаетсядля втулки постоянной толщины, если ее длина достаточна для того, чтобы считать равными нулю деформации в поперечном сечении достаточно удаленном от места приложения нагрузки (краевой эффект). 
+
+Расчет конической втулки сводится к расчету балки переменного сечения, лежащей на упругом основании, с переменным коэффициентом пропорциональности между прогибом и реакцией.
+Излагаемое ниже решение задачи не содержит допущений, кроме тех, которые принимаются при расчете балок на упругом основании.
+Задача сводится к определгнию коэффициентов податливости края втулки, входящих в уравнение . 
+Известно, что у втулок с достаточно длинной конической частью наибольшие напряжения могут возникать не в основании, а в переходе между цилиндрической иконической частью. 
+В данном сечении наппяжения следует вычислять дополнительно.
+
+Однако решение дифференциального уравнения упругой линии конической части втулки не выражается через элементарные функции, а также известно, что интегрирование такого уравнения не приводится к квадратурам.
+В связи с этим, задача об изгибе конической втулки решается приближенными методами:
+\begin{enumerate}
+  \item Методом конечных разностей.
+  \item Численным интегрированием.
+  \item По методу С.П. Тимошенко, когда искомое решение представляется в виде степенного ряда.
+\end{enumerate}
+
+
+\section{Основные зависимости для цилиндрических втулок}
+\label{CylindricalSleeve}
+
+Как известно, дифференциальное уравнение упругой линии балки постоянного сечения, лежащей на сплошном упругом основании имеет вид
+\begin{equation}
+  \label{CylindricalSleeve_eq1}
+  \frac{d^4 x_2}{dx_1^4} +4 {\beta}^4 x_2=0.  
+\end{equation}
+где 
+\begin{equation}
+  \label{CylindricalSleeve_eq2}
+  \beta=\sqrt[4]{\frac{k}{4EJ}}.  
+\end{equation}
+
+Здесь {k} -- коэффициент податливости основания (коэффициент постели), явялется величиной постоянной; $EJ$ -- жесткость балки при изгибе.
+
+Интегралом уравнения \eqref{CylindricalSleeve_eq1} является выражение 
+\begin{equation}
+  \label{CylindricalSleeve_eq3}
+  x_2=e^{\beta x_1} \left( A \cos{\beta x} +B \sin {\beta x} \right)+ e^{-\beta x_1} \left( C \cos{\beta x} +D^{\prime} \sin {\beta x} \right),  
+\end{equation}
+где $$,$$,$$,$$ -- построянные интегрирования, определяются в каждом частном случае из граничных условий.
+
+Коэффициент податливости основания для балки-полоски (единичной ширины), вырезанной из цилиндрической оболочки толщиной стенки $s$ и средним радиусом $r_{\text{ср}}$,
+\begin{equation}
+  \label{CylindricalSleeve_eq4}
+  k=\frac{Es}{r_{\text{ср}}^2}.  
+\end{equation}
+
+Момент инерции $J$ поперечного сечения балки-полоски шириной 0,01 м 
+\begin{equation*}
+  J=\frac{s^3}{12}.  
+\end{equation*}
+
+После замены ${k}$,${J}$ в выражении \eqref{CylindricalSleeve_eq2} их значениями и учета, что выделенная из оболочки балка-полоска изгибается в условиях плоской деформации, найдем
+\begin{equation}
+  \label{CylindricalSleeve_eq5}
+  \beta=\sqrt[4]{\frac{3 \left( 1-{\nu}^2 \right)}{r_{\text{ср}}^2 s^2}} 
+\end{equation}
+при $\nu=0,3$ 
+\begin{equation}
+  \label{CylindricalSleeve_eq6}
+  \beta=\frac{1,285}{\sqrt{r_{\text{ср}} s}} 
+\end{equation}
+
+Длинная цилиндрическая втулка фланца представляет собой трубу, к которой приложены изгибающие моменты $M_0$ и поперечные силы $Q_0$, равномерно распределенной по краю $x_1=0$ рис . 
+Всегда имеется сечение полоски, находящееся на конечном расстоянии от начала координат, перемещения которого равны нулю.
+Из этого условия заключаем, что $A=B=0$. Уравнение \eqref{CylindricalSleeve_eq3} принимает вид
+\begin{equation}
+  \label{CylindricalSleeve_eq7}
+  x_2= e^{-\beta x_1} \left( C \cos{\beta x_1} +D^{\prime} \sin {\beta x_1} \right),  
+\end{equation}
+Постоянные $C$ и $D^{\prime}$ определим из следующих граничных условий:
+\begin{equation}
+  \label{CylindricalSleeve_eq8}
+  \begin{split}
+    M_0=-D \left( \frac{d^2 x_2}{dx_1^2} \right) \bigg|_{x_1=0},\\
+    Q_0=D \left( \frac{d^3 x_2}{dx_1^3} \right) \bigg|_{x_1=0}.
+  \end{split} 
+\end{equation}
+Здесь $D$ -- цилиндрическая жесткость, определяемая по формуле , с заменой $h$ на $s$.
+
+Подставив $x_2$ из уравнения \eqref{CylindricalSleeve_eq7} в условия \eqref{CylindricalSleeve_eq8}, получим два уравнения, содержащие $C$ и $D^{\prime}$, из которых найдем
+\begin{equation*}
+    C=\frac{1}{2 {\beta}^3 D} \left( Q_0 - \beta M_0 \right); \quad D^{\prime}=\frac{M_0}{2 {\beta}^2 D}
+\end{equation*}
+
+Подаставив эти занчения в уравнение \eqref{CylindricalSleeve_eq7}, получим 
+\begin{equation}
+  \label{CylindricalSleeve_eq9}
+  x_2= \frac{e^{-\beta x_1}}{2 {\beta}^3 D} \left[ Q_0 \cos{\beta x} - \beta M_0 \left( \cos{\beta x_1}-\sin{\beta x_1} \right) \right],  
+\end{equation}
+
+Кривая, отвечающая уравнению \eqref{CylindricalSleeve_eq9} -- быстрозатухающая, с длиной волны 
+\begin{equation}
+  \label{CylindricalSleeve_eq10}
+  \lambda=\frac{2 \pi}{\beta}=2 \pi \sqrt{\frac{r_{\text{ср}}^2 s^2}{3 \left( 1- {\nu}^2 \right)}}   
+\end{equation}
+
+Прогиб края ктулки найдем из \eqref{CylindricalSleeve_eq9}, положив $x_1=0$:
+\begin{equation}
+  \label{CylindricalSleeve_eq11}
+  (x_2)|_{x_1=0}= -\frac{1}{2 {\beta}^3 D} \left( Q_0 - \beta M_0 \right),  
+\end{equation}
+
+Угол поворота края найдем, если продифференцируем уравнение \eqref{CylindricalSleeve_eq9} и положим $x_1=0$:
+\begin{equation}
+  \label{CylindricalSleeve_eq12}
+  \left(\frac{d x_2}{d x_1}\right) \bigg|_{x_1=0}= -\frac{1}{2 {\beta}^2 D} \left( Q_0 -2 \beta M_0 \right),  
+\end{equation}
+
+Положив в уравнениях \eqref{CylindricalSleeve_eq11} и \eqref{CylindricalSleeve_eq12} $Q_0=1$ и $M_0=0$, затем $Q_0=0$ и $M_0=1$, найдем следующие выражения коэффициентов податливости края длинной цилиндрической втулки:
+\begin{equation}
+  \label{CylindricalSleeve_eq13}
+  k_{11}=\frac{1}{2 {\beta}^3 D}; \quad k_{22}=\frac{1}{\beta D};\quad k_{12}=\frac{1}{2 {\beta}^2 D}.  
+\end{equation}
+
+Известно, что детерминант системы канонических уравнений никогда не может равняться нулю или быть отрицательным, значит 
+\begin{equation}
+  \label{CylindricalSleeve_eq14}
+  k_{11}=\frac{1}{2 {\beta}^3 D}; \quad k_{22}=\frac{1}{\beta D};\quad k_{12}=\frac{1}{2 {\beta}^2 D}.  
+\end{equation}
+
+Раскрыв детерминант, находим
+\begin{equation}
+  \label{CylindricalSleeve_eq15}
+  k_{11}k_{22} > k_{12}^2,  
+\end{equation}
+что после замены коэффициентов полученными их выражениями, даст 
+\begin{equation}
+  \label{CylindricalSleeve_eq16}
+  \frac{1}{2 {\beta}^3 D} \cdot \frac{1}{\beta D} > \frac{1}{\left( 2 {\beta}^2 D \right)^2}.  
+\end{equation}
+
+Преобразовав, получим 
+\begin{equation*}
+  k_{11}k_{22} > 2k_{12}^2  
+\end{equation*}
+или 
+\begin{equation}
+  \label{CylindricalSleeve_eq17}
+  \sqrt{k_{11}k_{22}} > 1,414k_{12}.  
+\end{equation}
+
+
+Коэффициенты податливости края любой длинной цилиндрической втулки удовлетворяют полученному равенству.
+Заметим, что к длинным цилиндрическим втулкам принято относить втулки длиной не менее $0,5 \lambda$, к коротким -- менее $0,5 \lambda$, хотя в ряде случаев втулки длиной менее $0,5 \lambda$ можно считать длинными.
+Наиболшими в длинной цилиндрической втулке являются изгибные напряжения ${\sigma}_{{\text{вт}}_2}^{\prime \prime}$ в ее основании, определяемые по формуле 
+\begin{equation}
+  \label{CylindricalSleeve_eq18}
+  {\sigma}_{{\text{вт}}_2}^{\prime \prime}=\frac{6M_0}{s^2}.  
+\end{equation}
+
+
+
+\section{Основные зависимости для коротких цилиндрических втулок втулок}
+\label{ShortConicalSleeve}
+
+
+
+
+
+\section{Основные зависимости для конических втулок}
+\label{ConicalSleeve}
+
+Прогиб $y$ полубескончной балки-полоски шириной, равной единице, лежащей на упругом основании, нагруженной на левом конце моментом $M_0$ или силой $Q_0$ , удовлетворяет дифференциальному уравнению 
+\begin{equation}
+  \label{ConicalSleeve_eq1}
+  \frac{d}{dx_1^2} \left( D \frac{d^2 x_2}{dx_1^2} \right)+kx_2=0.  
+\end{equation}
+
+При этом ось $x_1$ направлена вдоль нижней стороны недеформированной балки-полоски, $D$ -- переменная жесткость балки-полоски (цилиндрическая жесткость оболочки), $k$ -- переменный коэффициент податливости основания.
+Этот коэффициент податливости определяется выражением , в котором $s$, $r_{\text{ср}}$ -- соответсвенно толщина стенки и радиус срединной поверхности есть переменные величины, функции координаты $x_1$.
+
+Упругой линии каждого участка балки-полоски (в пределах конической и цилиндрической части втулки) соответствует свой интеграл с четырьмя постоянными интегрирования, две из которых равны нулю.
+Остается шесть постоянных интегрирования.
+Четыре первых краевых условия получим, приравняв перемещения и силы слева и справа то переходного сечения $CD$.
+Последние два граничных условия являются условиями нагружения балки-полоски:
+\begin{equation}
+  \label{ConicalSleeve_eq2}
+    M|_{x_1=0}=M_0 \quad Q|_{x_1=0}=Q_0 
+\end{equation}
+
+Определив постоянные интегрирования, нетрудно найти силы и перемещения в любом сечении балки-полоски.
+
+\subsection{Расчет по методу С.П. Тимошенко}
+\label{Timoshenko}
+
+Условие тонкостенности рассматриваемой оболочки позволяет переменный радиус срединной поверхности конической части заменить постоянным радиусом срединной поверхности цилиндрической части оболочки. 
+Взяв, далее, оси координат, как показано, на рис, для толщины $s_{x_1}$ и цилиндрической жесткости $D_{x_1}$ конической части, будем иметь следующие выражения:
+\begin{equation}
+  \label{Timoshenko_eq1}
+  s_{x_1}=ax_1; \quad D_{x_1}= \frac{Ea^3}{12 \left( 1- {\nu}^2 \right)}x_1^3,
+\end{equation}
+где $a= \tan{\alpha/2}$ и уравнение \eqref{ConicalSleeve_eq1} примет вид 
+\begin{equation}
+  \label{Timoshenko_eq2}
+  \frac{d}{d x_1^2} \left( x_1^3 \frac{d^2 x_2}{dx_1^2} \right)+\frac{12 \left( 1- {\nu}^2 \right)}{a^2 r_{\text{ср}}^2}x_1x_2=0.  
+\end{equation}
+
+Общее решение уравнения \eqref{Timoshenko_eq2} есть 
+\begin{equation}
+  \label{Timoshenko_eq3}
+  y_{\text{лев}}=\frac{1}{\sqrt{x_1}} \left[ C_1 \psi_1^{\prime}(\xi)+C_2 \psi_2^{\prime}(\xi)+C_3 \psi_3^{\prime}(\xi)+C_4 \psi_4^{\prime}(\xi) \right]  
+\end{equation}
+
+Выражение превой производной функции $y$, момента $M$ и поперечной силы $Q$ в текущем состоянии конической, левой части балки-полоски следующие
+\begin{equation}
+  \label{Timoshenko_eq4}
+  \begin{split}
+    y_{\text{лев}}^{\prime} &=\frac{1}{2 x_1 \sqrt{x_1}} \left[ C_1 n(\xi)+C_2 m(\xi)+C_3 q(\xi)+C_4 p(\xi) \right],\\
+    M_{\text{лев}} &=-\frac{Ea^3 \sqrt{x_1}}{48 \left( 1- {\nu}^2 \right)} \left[ C_1 d(\xi)+C_2 e(\xi)+C_3 f(\xi)+C_4 h(\xi) \right],\\
+    Q_{\text{лев}} &=\frac{Ea^3 {\rho}^2 \sqrt{x_1}}{24 \left( 1- {\nu}^2 \right)} \left[ C_1 m(\xi)+C_2 n(\xi)+C_3 p(\xi)+C_4 q(\xi) \right].
+  \end{split}  
+\end{equation}
+
+Здесь приняты следующие обозначения
+\begin{equation}
+  \label{Timoshenko_eq5}
+  \begin{split}
+    m(\xi)&=\xi \psi_1(\xi)+2 \psi_2^{\prime}(\xi),\\
+    n(\xi)&=\xi \psi_2(\xi)-2 \psi_1^{\prime}(\xi),\\
+    p(\xi)&=\xi \psi_3(\xi)+2 \psi_4^{\prime}(\xi),\\
+    q(\xi)&=\xi \psi_4(\xi)-2 \psi_3^{\prime}(\xi),\\
+    d(\xi)&={\xi}^2 \psi_2^{\prime}(\xi)-4 \xi \psi_2(\xi)+8 \psi_1^{\prime}(\xi),\\
+    e(\xi)&={\xi}^2 \psi_1^{\prime}(\xi)-4 \xi \psi_1(\xi)-8 \psi_2^{\prime}(\xi),\\
+    f(\xi)&={\xi}^2 \psi_4^{\prime}(\xi)-4 \xi \psi_4(\xi)+8 \psi_3^{\prime}(\xi),\\
+    h(\xi)&={\xi}^2 \psi_3^{\prime}(\xi)-4 \xi \psi_3(\xi)-8 \psi_4^{\prime}(\xi);
+  \end{split}  
+\end{equation}
+
+\begin{equation}
+  \label{Timoshenko_eq6}
+  \begin{split}
+    {\rho}^4&=\frac{12 \left( 1- {\nu}^2 \right)}{a^2 r_{\text{ср}}^2},\\
+    \xi&=2 \rho \sqrt{x_1}.
+  \end{split}  
+\end{equation}
+
+Числовые значения функций вида $\psi (\xi)$ и $\psi^{\prime} (\xi)$, входящие в выражения, приведены для значений $\xi$ до 10 в таблицах, где имеют следующие значения
+
+
+
+Последовательным дифференцированием уравнения находим угол поворота, изгибающий момент и поперечную силу для полоски, выделенной из цилиндрической части втулки 
+\begin{equation}
+  \label{Timoshenko_eq8}
+  \begin{split}
+    y^{\prime} &=\beta e^{\beta x} \left[ A \left ( \cos{\beta x} + \sin {\beta x} \right )+ B \left ( \cos{\beta x} + \sin {\beta x} \right ) \right]\\
+    M &=-\frac{Es^3}{6 \left( 1- {\nu}^2 \right)}{\beta}^2 e^{\beta x} \left[ -A \sin {\beta x}+B \cos{\beta x} \right],\\
+    Q &=-\frac{Es^3}{6 \left( 1- {\nu}^2 \right)}{\beta}^3 e^{\beta x} \left[ -A \left (\cos{\beta x}+\sin {\beta x}\right ) +B \left (\cos{\beta x}-\sin {\beta x}\right ) \right].
+  \end{split}  
+\end{equation}
+
+Заметим, что и для правой части балки-полоски начало координат принимается согласно рис. В этом случае $x$ отрицателен и в уравнении следует положить равным нулю постоянные $C$,$D^{\prime}$.
+Подставим выражение , и , в граничные условия при $x=x_1$
+\begin{equation*}
+  \label{Timoshenko_eq9}
+  \begin{split}
+    y_{\text{лев}}&=y_{\text{пр}},\\
+    y_{\text{лев}}^{\prime}&=y_{\text{пр}}^{\prime},\\
+    Q_{\text{лев}}&=Q_{\text{пр}},\\
+    M_{\text{лев}}&=M_{\text{пр}},\\
+  \end{split}  
+\end{equation*}
+при $x_0=x_1+l_{\text{вт}}$
+\begin{equation*}
+  \label{Timoshenko_eq10}
+  \begin{split}
+    M_{\text{лев}}&=M_0,\\
+    Q_{\text{лев}}&=Q_0.\\
+  \end{split}  
+\end{equation*}
+
+Полученные шесть уравнений относительно постоянных интегрирования $A$,$B$,$C_1$,$C_2$,$C_3$,$C_4$ можно записать в виде
+\begin{equation}
+  \label{Timoshenko_eq11}
+  \begin{split}
+    &C_1 \psi_1^{\prime}(\xi) +C_2 \psi_2^{\prime}(\xi)+C_3 \psi_3^{\prime}(\xi)+C_4 \psi_4^{\prime}(\xi)= \\
+    & \quad =\sqrt{x_1} e^{\beta x_1} \left ( A \cos {\beta x_1}+B \sin{\beta x_1} \right ),\\
+    &C_1 n_1-C_2 m_1+C_3 q_1-C_4 p_1= \\
+    & \quad = 2x_1 \sqrt{x_1} \beta e^{\beta x_1} \left[ A \left ( \cos{\beta x_1} - \sin {\beta x_1} \right )+ B \left ( \cos{\beta x_1} + \sin {\beta x_1} \right ) \right],\\
+    &C_1 d_1-C_2 e_1+C_3 f_1-C_4 h_1= \\
+    & \quad = \frac{8 s^3 {\beta}^3 e^{\beta x_1}}{a^3 \sqrt{x_1}} \left ( -A \sin {\beta x_1}+B \cos{\beta x_1} \right ),\\
+    &C_1 m_1-C_2 n_1+C_3 p_1-C_4 q_1= \\
+    & \quad = -\frac{4 s^3 {\beta}^3 e^{\beta x_1}}{a^3 {\rho}^2 \sqrt{x_1}} \left[ - A \left ( \cos{\beta x_1} + \sin {\beta x_1} \right )+ B \left ( \cos{\beta x_1} - \sin {\beta x_1} \right ) \right],\\
+    &M_0 =-\frac{Ea^3 \sqrt{x_0}}{48 \left( 1- {\nu}^2 \right)} \left ( C_1 d_0-C_2 e_0+C_3 f_0-C_4 h_0 \right )\\
+    &Q_0 =\frac{Ea^3 {\rho}^2 \sqrt{x_0}}{24 \left( 1- {\nu}^2 \right)} \left ( C_1 m_0-C_2 n_0+C_3 p_0-C_4 q_0 \right ).
+  \end{split}  
+\end{equation}
+где $m_1$,$n_1$,$p_1,$ $\ldots$ вычисляют для $\xi$ при $x=x_1$, а $m_0$,$n_0$,$p_0,$ $\ldots$ для $\xi$ при $x=x_1+l_{\text{вт}}$.
+
+Уравнения \eqref{Timoshenko_eq11} решают дважды: для ${\text{I}}$ нагрузки $\left (M_0=0, Q_0=-1 \right )$, в врезультате чего находят постоянные интегрирования $C_1^{\prime}, \ldots,C_4^{\prime}$, $A^{\prime}$, $B^{\prime}$ и для ${\text{II}}$ -- $\left (M_0=1, Q_0=0 \right )$, в результате чего находят постоянные $C_1^{\prime \prime}, \ldots,C_4^{\prime \prime}$, $A^{\prime \prime}$, $B^{\prime \prime}$.
+
+После определения постоянных интегрирования найдем коэффициенты податливости края втулки:
+\begin{enumerate}
+  \item При действии ${\text{I}}$ нагрузки
+  \begin{equation}
+    \label{Timoshenko_eq12}
+    \begin{split}
+      k_{21}=y({\xi}_0)&=\frac{1}{\sqrt{x_0}} \left[ C_1^{\prime} \psi_1^{\prime}({\xi}_0) +C_2^{\prime} \psi_2^{\prime}({\xi}_0)+C_3^{\prime} \psi_3^{\prime}({\xi}_0)+C_4^{\prime} \psi_4^{\prime}({\xi}_0) \right],\\
+      k_{22}=y^{\prime}({\xi}_0)&=\frac{1}{2x_0 \sqrt{x_0}} \left(C_1^{\prime} n_0-C_2^{\prime} m_0+C_3^{\prime} q_0-C_4^{\prime} p_0 \right);\\
+    \end{split}  
+  \end{equation}
+  \item При действии ${\text{II}}$ нагрузки
+  \begin{equation}
+    \label{Timoshenko_eq13}
+    \begin{split}
+      k_{11}=y({\xi}_0)&=\frac{1}{\sqrt{x_0}} \left[ C_1^{\prime \prime} \psi_1^{\prime}({\xi}_0) +C_2^{\prime \prime} \psi_2^{\prime}({\xi}_0)+C_3^{\prime \prime} \psi_3^{\prime}({\xi}_0)+C_4^{\prime \prime} \psi_4^{\prime}({\xi}_0) \right],\\
+      k_{12}=y^{\prime}({\xi}_0)&=\frac{1}{2x_0 \sqrt{x_0}} \left(C_1^{\prime \prime} n_0-C_2^{\prime \prime} m_0+C_3^{\prime \prime} q_0-C_4^{\prime \prime} p_0 \right);\\
+    \end{split}  
+  \end{equation}
+  \end{enumerate}
+
+Подставив найденные значения постоянных интегрирования \eqref{Timoshenko_eq3}, \eqref{Timoshenko_eq4} можем определить силы в любом сечении конической втулки.
+
+
+
 
 
 В данной главе используется моделирование молекулярной динамики для расчета фазовых диаграмм обобщенных систем Леннарда-Джонса с различными показателями притяжения.
