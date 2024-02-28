@@ -133,6 +133,61 @@
 
 \section{Основные расчетные случаи для симметрично нагруженых круглых и кольцевых пластинок}
 
+Пользуясь уравнением и выражениями и можно определить прогиб в и напряжения любой точке пластинки и при любом виде нагрузки, лишь бы нагрузки были симметричны относительно ее оси.
+Исходя из нагрузок, которые мы описывали в первой главе, можно выделить несколько  
+
+\subsection{Кольцевая пластинка, свободно опертая по внутреннему краю.}
+\label{RingPlateForce}
+
+Рассмотрим кольцевую пластинку, свободно пертую по внутреннему краю, нагруженаную по внешнему контуру равномерно расределенной нагрузкой $Q_{\text{пр}}$.
+Решение уравнения представлено в и имеет следующий вид 
+\begin{equation}
+  \label{RingPlateForce_eq1}
+    w=\frac{Q_{\text{пр}} a^2}{16 \pi D} \left[ \frac{4 \left( 1-\nu \right)\ln{\alpha}}{\left(1-\nu \right) \left({\alpha}^2 -1\right)}\ln{x} -\frac{2x^2 \ln{x}}{{\alpha}^2} -\left( \frac{3+\nu}{1+\nu}+\frac{2 {\alpha}^2 \ln{\alpha}}{{\alpha}^2 -1} \right)\frac{1-x^2}{{\alpha}^2} \right],
+\end{equation}
+\begin{equation}
+  \label{RingPlateForce_eq2}
+    \varphi=-\frac{Q_{\text{пр}} a^2}{4 \pi Db} \left[ \frac{\left( 1+\nu \right)\ln{\alpha}}{\left(1-\nu \right) \left({\alpha}^2 -1\right)} \frac{1}{x} -\frac{x \ln{x}}{{\alpha}^2} +\left( \frac{1}{1+\nu}+\frac{{\alpha}^2 \ln{\alpha}}{{\alpha}^2 -1} \right)\frac{x}{{\alpha}^2} \right],
+\end{equation}
+\begin{equation}
+  \label{RingPlateForce_eq3}
+    {\sigma}_r=\frac{3Q_{\text{пр}}}{2 \pi h^2} \left(1-\nu \right) \left[\ln{x}-\frac{x^2-1}{{\alpha}^2-1}  {\left(\frac{\alpha}{x} \right)}^2  \ln{x} \right],
+\end{equation}
+\begin{equation}
+  \label{RingPlateForce_eq4}
+    {\sigma}_{\text{к}}=\frac{3Q_{\text{пр}}}{2 \pi h^2} \left(1-\nu \right) \left[\ln{x}-\frac{x^2+1}{{\alpha}^2-1}  {\left(\frac{\alpha}{x} \right)}^2  \ln{\alpha} -\frac{1-\nu}{1+\nu} \right].
+\end{equation}
+
+
+\subsection{Кольцевая пластинка, свободно опертая по наружному краю.}
+\label{RingPlateMoment}
+
+Рассмотрим кольцевую пластинку, свободно пертую по наружному краю, нагруженаную по внутреннему контуру равномерно расределенными моментами $M_0$.
+\begin{equation}
+  \label{RingPlateMoment_eq1}
+    w=\frac{M_0^{\prime} a^2}{D \left(1-{\alpha}^2 \right)} \left[ \frac{{\alpha}^2 -x^2}{2 \left(1+\nu \right) {\alpha}^2}+\frac{1}{\left(1-\nu \right)}\ln{\frac{\alpha}{x}} \right],
+\end{equation}
+\begin{equation}
+  \label{RingPlateMoment_eq2}
+    \varphi=\frac{M_0^{\prime} a^2}{D \left(1-{\alpha}^2 \right)b} \left[ \frac{1}{\left(1+\nu \right) {\alpha}^2}+\frac{1}{\left(1-\nu \right)x} \right],
+\end{equation}
+\begin{equation}
+  \label{RingPlateMoment_eq3}
+    {\sigma}_r=\frac{6M_0^{\prime}}{h^2 \left( {\alpha}^2-1 \right)} \left[ \left(\frac{\alpha}{x}\right)^2  -1 \right],
+\end{equation}
+\begin{equation}
+  \label{RingPlateMoment_eq4}
+    {\sigma}_{\text{к}}=\frac{6M_0^{\prime}}{h^2 \left( {\alpha}^2-1 \right)} \left[ \left(\frac{\alpha}{x}\right)^2  +1 \right].
+\end{equation}
+
+Здесь были приняты обозначения 
+\begin{enumerate}
+  \item $\alpha=a/b$ -- отношение внутреннего радиуса кольца к внутренему;
+  \item $x=r/b$ -- отношение текущего радиуса кольца к внутренему;
+  \item $Q_{\text{пр}}/2 \pi a$ -- нагрузка на единицу длины наружного края;
+  \item $M_0^{\prime}$ -- момент на единицу длины внутреннего края;
+  \item $D$ -- цилиндрическая жесткость пластинки.
+  \end{enumerate}
 
 
 \section{Снижение жесткости кольца фланца, вызываемое отверстиями для болтов}

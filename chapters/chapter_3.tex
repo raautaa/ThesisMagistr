@@ -166,6 +166,46 @@
 \section{Основные зависимости для коротких цилиндрических втулок втулок}
 \label{ShortConicalSleeve}
 
+Этот случай приводится к расчету балки длиной $l_{\text{вт}}$, лежащей на упругом основании рисс. Произвольные постоянные $A$,$B$,$C$ и $D^{\prime}$ отличны от нуля, поэтому необходимо пользоваться уравнением \eqref{CylindricalSleeve_eq3}.
+Граничные условия следующие: 
+\begin{enumerate}
+  \item при $x=0 \quad Q_x=Q_0$, $M_x=0$ или $M_x=0 \quad M_x=M_0$;
+  \item при $x=l_{\text{вт}} \quad M_x=0, \quad Q_x=Q_0$.
+  \end{enumerate}
+
+Произвольные постоянные $A$,$B$,$C$ и $D^{\prime}$ можно связать с начальными параметрами $y_0$,${\varphi}_0$,$M_0$,$Q_0$, под которыми понимаем соотвественно значения прогиба, угла поворота, изгибающего момента и поперечной силы в левом сечении балки.
+Затем приведем уравнение \eqref{CylindricalSleeve_eq3} к виду 
+\begin{equation}
+  \label{ShortConicalSleeve_eq1}
+  x_2=y_0 A_x +\frac{{\varphi}_0}{\beta}B_x -\frac{4 {\beta}^2}{kb}M_0 C_x+ \frac{4 \beta}{kb}Q_0 D_x,  
+\end{equation}
+где $A_x$,$B_x$,$C_x$,$D_x$ есть функции Крылова:
+\begin{equation}
+  \label{ShortConicalSleeve_eq2}
+  \begin{split}
+    A_x&={\mathop{\rm ch}\nolimits}{\beta x} \cos{\beta x},\\
+    B_x&=\frac{1}{2} \left( {\mathop{\rm ch}\nolimits}{\beta x}\sin{\beta x}+ {\mathop{\rm sh}\nolimits}{\beta x}\cos{\beta x}\right),\\
+    C_x&={\mathop{\rm sh}\nolimits}{\beta x} \sin{\beta x},\\
+    D_x&=\frac{1}{2} \left( {\mathop{\rm ch}\nolimits}{\beta x}\sin{\beta x}- {\mathop{\rm sh}\nolimits}{\beta x}\cos{\beta x}\right)
+  \end{split}
+  x_2=y_0 A_x +\frac{{\varphi}_0}{\beta}B_x -\frac{4 {\beta}^2}{kb}M_0 C_x+ \frac{4 \beta}{kb}Q_0 D_x,  
+\end{equation}
+$k$ выражено формулой \eqref{CylindricalSleeve_eq4}. 
+
+Выражения изгибающего момента, поперечной силы и угла поворота следующие 
+\begin{equation}
+  \label{ShortConicalSleeve_eq3}
+  \begin{split}
+    M(x)&=M_0 A_x -\frac{1}{\beta}Q_0 B_x +\frac{kby_0}{{\beta}^2}C_x+\frac{kb{\varphi}_0}{{\beta}^3}D_x,\\
+    Q(x)&=Q_0 A_x -\frac{kby_0}{{\beta}^2} B_x -\frac{kb{\varphi}_0}{{\beta}^3}C_x+4 \beta M_0 D_x,\\
+    \varphi (x)&={\varphi}_0 A_x -\frac{k {\beta}^3 }{{kb}}M_0 B_x + \frac{k {\beta}^2 }{{kb}}Q_0 C_x - 4 \beta y_0 D_x.\\
+  \end{split}
+\end{equation}
+
+Здесь и в уравнении \eqref{ShortConicalSleeve_eq1} ширину балки $b$  таже полагаем равной единице.
+
+Из уравнений \eqref{ShortConicalSleeve_eq3} при $x=l_{\text{вт}}$, $M|_{x=l}=Q|_{x=l}=0$ можно получить выражения для начальных параметров $y_0$,${\varphi}_0$:
+
 
 
 
@@ -248,8 +288,6 @@
 \end{equation}
 
 Числовые значения функций вида $\psi (\xi)$ и $\psi^{\prime} (\xi)$, входящие в выражения, приведены для значений $\xi$ до 10 в таблицах, где имеют следующие значения
-
-
 
 Последовательным дифференцированием уравнения находим угол поворота, изгибающий момент и поперечную силу для полоски, выделенной из цилиндрической части втулки 
 \begin{equation}
