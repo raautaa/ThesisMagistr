@@ -364,6 +364,290 @@ $k$ выражено формулой \eqref{CylindricalSleeve_eq4}.
 
 
 
+\section{Расчетные выражения для цельных фланцев}
+\label{SolidFlange}
+
+Ниже приведем формулы для определния рачетных напряжений во фланце и перемещений его кольца.
+
+Решив уравнение относительно $M_0$, $Q_0$ и учтя зависимость, получим следующие выражения для определяемых величин в функции угла $\theta$ и коэффициентов податливости края втулки
+\begin{equation}
+  \label{SolidFlange_eq1}
+  \begin{split}
+    M_0&=\theta \frac{1/2 h k_{12} +k_{11}}{k_{11}k_{22}-k_{12}^2},\\
+    Q_0&=\theta \frac{1/2 h k_{22} +k_{12}}{k_{11}k_{22}-k_{12}^2}.
+  \end{split}
+\end{equation}
+
+При определнии угла поворота внутреннего края кольца руководствуемся тем, что деформация кольца вызывается приведенной нагрузкой $Q_{\text{пр}}$ и усилиями, передающимися от втулки к кольцу моментом $M_0$ и силой $Q_0$, отнесенными к единице длинны внутреннего края. Эти усилия приводятся к моменту $M_0^{\prime}$
+\begin{equation}
+  \label{SolidFlange_eq2}
+    M_0^{\prime}=M_0 +Q_0 \frac{h}{2}.
+\end{equation}
+
+Воспользовавшись методом наложения, угол поворота $\theta$ можно определить как разность выражений \eqref{RingPlateForce_eq2} и \eqref{RingPlateMoment_eq2}, записанных для значений $x=1$, т.е. на внутреннем крае пластинки:
+\begin{equation}
+  \label{SolidFlange_eq3}
+    \theta =\frac{Q_{\text{пр}} D_{\text{н.ф}}}{2D}A - \frac{M_0^{\prime} D_{\text{н.ф}}}{2D}B,
+\end{equation}
+где 
+\begin{equation}
+  \label{SolidFlange_eq4}
+  \begin{split}
+    A&=\frac{\alpha}{4 \pi} \left[ \frac{\left( 1+\nu \right)\ln{\alpha}}{\left(1-\nu \right) \left({\alpha}^2 -1\right)} +\left( \frac{1}{1+\nu}+\frac{{\alpha}^2 \ln{\alpha}}{{\alpha}^2 -1} \right)\frac{1}{{\alpha}^2} \right],\\
+    B&=\frac{\alpha}{\left(1-{\alpha}^2 \right)} \left[ \frac{1}{\left(1+\nu \right) {\alpha}^2}+\frac{1}{1-\nu} \right]
+  \end{split}
+\end{equation}
+
+После замены момента $M_0^{\prime}$ его выраженем \eqref{SolidFlange_eq2}, а $M_0$ и $Q_0$ выражениями \eqref{SolidFlange_eq1}, уравнение \eqref{SolidFlange_eq3} примет вид
+\begin{equation}
+  \label{SolidFlange_eq5}
+    \theta =\frac{Q_{\text{пр}} D_{\text{н.ф}}}{2D}A - \left( \frac{1/2 h k_{12} +k_{11}}{k_{11}k_{22}-k_{12}^2} +\frac{h}{2} \frac{1/2 h k_{22} +k_{12}}{k_{11}k_{22}-k_{12}^2} \right) \frac{D_{\text{н.ф}}}{2D}B,
+\end{equation}
+Отсюда нетрудно вычислить $\theta$ 
+\begin{equation}
+  \label{SolidFlange_eq6}
+   \theta =\frac{Q_{\text{пр}} D_{\text{н.ф}} A}{2 \left( D+ \displaystyle \frac{1}{2} \frac{k_{11} + 1/4 h^2 k_{22} + h k_{12}}{k_{11}k_{22} -k_{12}^2} B D_{\text{н.ф}} \right)},
+\end{equation}
+или 
+\begin{equation}
+  \label{SolidFlange_eq7}
+   \theta =\frac{Q_{\text{пр}} D_{\text{н.ф}} A}{2 \left( D+ \displaystyle \frac{1}{2} L B D_{\text{н.ф}} \right)},
+\end{equation}
+где 
+\begin{equation}
+  \label{SolidFlange_eq8}
+  L= \frac{k_{11} + 1/4 h^2 k_{22} + h k_{12}}{k_{11}k_{22} -k_{12}^2} \frac{E_{\text{пр}}^{\prime}}{E_1}
+\end{equation}
+
+Заменив {\theta} в первом уравнении \eqref{SolidFlange_eq4} его выражением \eqref{SolidFlange_eq7}, найдем 
+\begin{equation}
+  \label{SolidFlange_eq9}
+  M_0=\frac{Q_{\text{пр}} D_{\text{н.ф}} A}{2 \left( D+ \displaystyle \frac{1}{2} L B D_{\text{н.ф}} \right)} \cdot \frac{1/2 h k_{12} +k_{11}}{k_{11}k_{22}-k_{12}^2} = \frac{Q_{\text{пр}} D_{\text{н.ф}} A}{2 \left( D+ \displaystyle \frac{1}{2} L B D_{\text{н.ф}} \right) F},
+\end{equation}
+где 
+\begin{equation}
+  \label{SolidFlange_eq10}
+  F= \frac{k_{11}k_{22}-k_{12}^2}{1/2 h k_{12} +k_{11}} \frac{E_1}{E_{\text{пр}}^{\prime}},
+\end{equation}
+
+Аналогичным образом из второго уравнения \eqref{SolidFlange_eq1} получим
+\begin{equation}
+  \label{SolidFlange_eq11}
+  Q_0 = \frac{Q_{\text{пр}} D_{\text{н.ф}} A}{2 \left( D+ \displaystyle \frac{1}{2} L B D_{\text{н.ф}} \right) K},
+\end{equation}
+где 
+\begin{equation}
+  \label{SolidFlange_eq12}
+  K= \frac{k_{11}k_{22}-k_{12}^2}{1/2 h k_{22} +k_{11}} \frac{E_1}{E_{\text{пр}}^{\prime}},
+\end{equation}
+
+Зная усилия нетрудно вычислить наибольшее изгибное напряжение в основании втулки 
+\begin{equation}
+  \label{SolidFlange_eq13}
+  {\sigma}_{1{\text{изг}}}= \frac{M_0}{W}= \frac{ 3 Q_{\text{пр}} D_{\text{н.ф}} A}{2 \left( D+ \displaystyle \frac{1}{2} L B D_{\text{н.ф}} \right) F s_{\text{н}}^2}.
+\end{equation}
+
+Наибольшее изгибное напряжение в вершине конической части втулки найдется как 
+\begin{equation}
+  \label{SolidFlange_eq14}
+  {\sigma}_{1{\text{изг}}}^{\prime}= \frac{6 M_{\text{вт}}}{W}.
+\end{equation}
+
+
+Теперь получим расчетные выражения для определения кольцевого и радиального напряжений в кольце фланца.
+Расчетными будут являться напряжения на внутреннем крае кольца и радиальное напряжение в в сечении кольца, образованном цилиндрической поверхностью, огибающей втулку фланца в ее основании.
+Предварительно отметим, что заменив в правой части равенства \eqref{SolidFlange_eq2} величины $M_0$, $Q_0$ их выражениями \eqref{SolidFlange_eq1}, момент $M_0^{\prime}$ можно представить в качестве функции угла $\theta$
+\begin{equation}
+  \label{SolidFlange_eq15}
+  M_0^{\prime}= \theta L.
+\end{equation}
+причем $\theta$ и $L$ известны по выражениям \eqref{SolidFlange_eq7}, \eqref{SolidFlange_eq8}.
+
+Кольцевое напряжение быстрее всего найти из условия, что радиальное напряжение в точке волокна, лежащего на окружности диаметром $D_{\text{в.ф}}$, равно нулю.
+Согласно закону Гука , кольцевое напряжение 
+\begin{equation}
+  \label{SolidFlange_eq16}
+  {\sigma}_{{\text{к}}}= \frac{E}{1- {\nu}^2} \left( {\varepsilon}_{\text{к}} +\nu {\varepsilon}_r \right).
+\end{equation}
+где по озвученому выше условию ${\varepsilon}_r=0$, а относительную деформацию кольцевого волокна заменим выражением ${\varepsilon}_{\text{к}}= \theta h/D_{\text{в.ф}}$. 
+
+Подставив в \eqref{SolidFlange_eq16} определим 
+\begin{equation}
+  \label{SolidFlange_eq14}
+  {\sigma}_{{\text{к}}}= \frac{E \theta  h}{ D_{\text{в.ф}} \left(1- {\nu}^2 \right)},
+\end{equation}
+что после замены $\theta$ на \eqref{SolidFlange_eq7} даст 
+\begin{equation}
+  \label{SolidFlange_eq15}
+  {\sigma}_{{\text{к}}}= \frac{E^{t} h Q_{\text{пр}} D_{\text{н.ф}} A}{2 \left( D+ \displaystyle \frac{1}{2} L B D_{\text{н.ф}} \right) \left(1- {\nu}^2 \right) D_{\text{в.ф}}},
+\end{equation}
+
+Определяя расчетное радиальное напряжение ${\sigma}_r$ будем основываться на методе наложения.
+\begin{equation}
+  \label{SolidFlange_eq16}
+  {\sigma}_r= \frac{Q_{\text{пр}}}{h}R + \frac{\theta L}{h^2}R_1,
+\end{equation}
+вновь заменив $\theta$ на \eqref{SolidFlange_eq7}
+\begin{equation}
+  \label{SolidFlange_eq17}
+  {\sigma}_r= Q_{\text{пр}} \frac{R+ \displaystyle \frac{A D_{\text{н.ф}}}{2 \left( D+ 1/2 L B D_{\text{н.ф}} \right)} L R_1}{h},
+\end{equation}
+где в соответствии с выражениями \eqref{RingPlateForce_eq3}, \eqref{RingPlateMoment_eq3}
+\begin{equation}
+  \label{SolidFlange_eq18}
+  \begin{split}
+    R&=\frac{3}{2 \pi} \left(1+\nu \right) \left[\ln{x}-\frac{x^2-1}{{\alpha}^2-1}  {\left(\frac{\alpha}{x} \right)}^2  \ln{\alpha} \right],\\
+    R_1&=\frac{6}{{\alpha}^2-1} \left[ \left(\frac{\alpha}{x}\right)^2  -1 \right],
+  \end{split}
+\end{equation}
+причем $x=D_{\text{вт}}/D_{\text{в.ф}}$.
+
+Основываясь на методе наложения можно определить прогиб кольца цельного фланца $w_{\text{к}}$ вычисляют как разность прогибов, определяемых выражениями \eqref{RingPlateForce_eq1}, \eqref{RingPlateMoment_eq1}
+\begin{equation}
+  \label{SolidFlange_eq19}
+  w_{\text{к}}=\frac{Q_{\text{пр}} N D_{\text{н.ф}}^2}{4D}-\frac{Q_{\text{пр}} A L N_1 D_{\text{н.ф}}^3}{8 \left(D+ 1/2 L B D_{\text{н.ф}} \right) D}
+\end{equation}
+где
+\begin{equation}
+  \label{SolidFlange_eq20}
+  \begin{split}
+    N&=\frac{1}{16 \pi} \left[ \frac{4 \left( 1+\nu \right)\ln{\alpha}}{\left(1-\nu \right) \left({\alpha}^2 -1\right)}\ln{x} -\frac{2x^2 \ln{x}}{{\alpha}^2} -\left( \frac{3+\nu}{1+\nu}+\frac{2 {\alpha}^2 \ln{\alpha}}{{\alpha}^2 -1} \right)\frac{1-x^2}{{\alpha}^2} \right],\\
+    N_1&=\frac{1}{1-{\alpha}^2} \left[ \frac{{\alpha}^2 -x^2}{2 \left(1+\nu \right) {\alpha}^2}+\frac{1}{1-\nu}\ln{\frac{\alpha}{x}} \right].
+  \end{split}
+\end{equation}
+
+
+
+
+
+\section{Действие изгибающего момента}
+\label{BendingMoment}
+
+Пусть на фланцевое соединение, находящееся под внутренним давлением, действует изгибающий момент $M$ . 
+Поскольку фланцевое соединение является линейно деформируемой упругой системой, то мы вправе рассматривать действие внутреннего давления и изгибающего момента порознь.
+Для получения суммарного результата необходимо наложить результат от действия изгибающего момента на результат от действия от внутреннего давления.
+Изгибающий момент вызывает взаимный поворот фланцев, в результате чего уплотнительные поверхности ранее параллельные друг другу образуют угол $\varphi$ .
+При установлении связи между величиной изгибающего момента и углом раскрытия фланцевого соединения примем следующие гипотезы:
+\begin{enumerate}
+  \item Контакт уплотнительных поверхностей в процессе деформации не нарушается.
+  \item Равнойдействующая реакция прокладки распределена по ее окружности радиуса $r_2$ до приложения изгибающего момента равномерно; если реакция распределна неравномерно, то неравномерность оцениваем постоянным коэффициентом ().
+  \item Детали фланцевого соединения работают упруго (начальные деформациии, получаемые прокладкой при обжатии не учитываются, поскольку после обжатия она работает упруго).
+  \item Болты фланцевого соединения можно заменить эквивалентнымы цилиндрами. Под эквивалетным цилиндром будем понимать полый цилиндр, у которого средний радиус стенки $r_1$ равен радиусу окружности отверстий болтов, площадь поперечных сечений равна суммарной площади поперечных сечений болтов, а коэффциент податливости равен коэффициенту податливости болтов. Таким образом, нагрузка распределена по окружности радиусом $r_1$.
+  \end{enumerate}
+
+
+
+На рис показаны внешний изгибающий момент $M$, действующий на фланец, и внутренние силы $\delta Q$ и $\delta R$, относящиеся к элементарному сектору $d \alpha$ (рис).
+Каждая из сил $\delta R$ представляет собой изменение реакции реакции прокладки на элментарном отрезке окружности радиуса $r_2$, а каждая из сил $\delta Q$ -- изменение нагрузки болтов на элементарном отрезке окружности $r_1$.
+Суммарный момент всех сил $\delta Q$ и $\delta R$ уравновешивает внешний момент $M$, следовательно 
+\begin{equation}
+  \label{BendingMoment_eq1}
+    \sum \delta Q=0, \quad \sum \delta R=0.
+\end{equation}
+
+Отсюда заключаем, что ось взаимного поворота фланцев -- центральная ось соединения. 
+Зависимость между углом раскрытия $\varphi$ и моментом $M$ найдем из условия равнества суммарного момента внешних сил $\delta Q$ и $\delta R$ внешнему моменту $M$
+\begin{equation}
+  \label{BendingMoment_eq2}
+    \int\limits_{0}^{2 \pi}r_1 \sin{\alpha}\delta Q+\int\limits_{0}^{2 \pi}r_2 \sin{\alpha}\delta R=M.
+\end{equation}
+
+Выражения элементарных сил $\delta Q$ и $\delta R$ можно записать, пользуясь (). А также, учитывая, что расхождение уплотнительных поверхностей фланцев $\Delta l_{0 \text{у}}$ в точке средней окружности прокладки, удаленной на расстояние $y$ от центральной оси равно
+\begin{equation}
+  \label{BendingMoment_eq3}
+  \Delta l_{0 \text{у}}= \varphi \cdot y= \varphi r_2 \sin{\alpha}.
+\end{equation}
+
+Из первого выражения ()
+\begin{equation}
+  \label{BendingMoment_eq4}
+  \Delta R= \frac{\Delta l_0}{c_0},
+\end{equation}
+или совершая переход от $\Delta R$ к $\delta R$ и $\Delta l_0$ к $\Delta l_{0 \text{у}}$
+\begin{equation}
+  \label{BendingMoment_eq5}
+  \delta R= \frac{l_{0 \text{у}}}{c_0} \cdot \frac{d \alpha}{2 \pi}= \frac{\varphi r_2}{2 \pi} \cdot \frac{1}{c_0} \sin{\alpha} d\alpha.
+\end{equation}
+
+Для цельных фланцев уравнение ()
+\begin{equation*}
+  \delta R c_0= \delta Q \left(c_1+c_2\right),
+\end{equation*}
+откуда
+\begin{equation}
+  \label{BendingMoment_eq6}
+  \delta Q= \delta R \frac{c_0}{c_1+c_2},
+\end{equation}
+
+После замены $\Delta R$ согласно \eqref{BendingMoment_eq4}, а также перхода от $\Delta Q$ к $\delta Q$ и $\Delta l_0$ к $\Delta l_{0 \text{у}}$, формула \eqref{BendingMoment_eq6} примет вид
+\begin{equation}
+  \label{BendingMoment_eq7}
+  \delta Q=\frac{\varphi r_2}{2 \pi}\cdot \frac{1}{c_1+c_2}\sin{\alpha}d\alpha.
+\end{equation}
+
+Теперь в уравнении \eqref{BendingMoment_eq2} заменим $\delta R$ и $\delta Q$ их полученными значениями \eqref{BendingMoment_eq6} и \eqref{BendingMoment_eq7}.
+После интегрирования получим 
+\begin{equation}
+  \label{BendingMoment_eq8}
+  M=\frac{1}{2}\left(\frac{1}{c_1+c_2}r_1r_2+\frac{1}{c_0}r_2^2\right)\varphi.
+\end{equation}
+
+Наибольшее расхождение уплотнительных поверхностей опрделим, когда положим в \eqref{BendingMoment_eq3} $\sin{\alpha}=1$,
+\begin{equation*}
+  \Delta l_{0 \text{max}}=\varphi r_2.
+\end{equation*}
+
+Разделив обе части \eqref{BendingMoment_eq4} на величину контактной площади одной стороны прокладки $F_{\text{п}}$, получим выражение снижения реакции на единицу площади прокладки или удельное снижение реакции
+\begin{equation}
+  \label{BendingMoment_eq9}
+  \Delta R_{\text{max}}^{\prime}=\frac{\Delta l_{0 \text{max}}}{F_{\text{п}}c_0}=\frac{\varphi r_2}{F_{\text{п}}c_0},
+\end{equation}
+откуда 
+\begin{equation}
+  \label{BendingMoment_eq10}
+  \varphi=\frac{\Delta R_{\text{max}}^{\prime}F_{\text{п}}c_0}{r_2}.
+\end{equation}
+
+Если найденное значение угла раскрытия подставить в формулу \eqref{BendingMoment_eq8}, после преобразований получим 
+\begin{equation}
+  \label{BendingMoment_eq11}
+  M=\frac{r_2Q_{\text{м}}}{2}\left(1+с\frac{r_1}{r_2}\right).
+\end{equation}
+где $Q_{\text{м}}=\Delta R_{\text{max}}^{\prime}F_{\text{п}}$ -- часть нагрузки болтов, расходуемая на создание внутренних сил, уравновешивающих внешний изгибающий момент.
+$c$ -- упругая постонная фланцевого соединения 
+\begin{equation}
+  \label{BendingMoment_eq12}
+  c=\frac{c_0}{c_1+c_2}.
+\end{equation}
+
+Применив к \eqref{BendingMoment_eq7} ту же логику, нетрудно прийти к формуле для определения наибольшего изменения напряжений в болтах $\Delta Q_{\text{max}}$ при изгибе соединения
+\begin{equation}
+  \label{BendingMoment_eq13}
+  \Delta Q_{\text{max}}=\frac{Q_{\text{м}}}{F_{\text{б}}}с,
+\end{equation}
+где $F_{\text{б}}$ -- суммарная площадь поперечного сечения болтов;
+$c$ -- упругая постоянная фланцевого соединения \eqref{BendingMoment_eq12}.
+
+Вводя коэффициент запаса плотности $n_{\text{пл}}$ из формулы  сможем получить выражение для определения части нагрузки болтов $Q_{\text{м}}$, уравновешивающей внешний изгибающий момент
+\begin{equation}
+  \label{BendingMoment_eq14}
+  Q_{\text{м}}=\frac{4M}{D_2\left(1+c\frac{D_1}{D_2}\right)}n_{\text{пл}},
+\end{equation}
+
+По формуле \eqref{BendingMoment_eq14} определяется часть нагрузки болтов, которую необходимо прибавить к расчетной величине нагрузки при проектировании фланцевого соединения, которое подвергается дейсвтвию изгибающего момента $M$.
+Выше рассматривался случай, когда до приложения момента давление по окружности прокладки распределялось равномерно.
+Если нагрузка болтов распределяется по прокладке неравномерно, то его плотность будет определяться не наибольшим, а наименьшим удельным давлением на прокладке.
+В таком случае формула \eqref{BendingMoment_eq14} записывается в виде
+\begin{equation}
+  \label{BendingMoment_eq15}
+  Q_{\text{м}}=\frac{4M}{\mu D_2\left(1+c\frac{D_1}{D_2}\right)}n_{\text{пл}},
+\end{equation}  
+где $\mu \le 1$ -- коэффициент неравномерности распределния давления по прокладке, определяемый по ().
+
+
+
+
+
 
 В данной главе используется моделирование молекулярной динамики для расчета фазовых диаграмм обобщенных систем Леннарда-Джонса с различными показателями притяжения.
 Оценены коэффициенты диффузии и подвижности (обратной диффузии) и проанализированы спектры коллективного возбуждения на жидких бинодалиях. 
